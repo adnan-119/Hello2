@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Car Booking Services{% endblock title %}
+{% block body %}
+<div class="container-fluid px-0 mb-3">
+    <img src="https://source.unsplash.com/1200x400/?phone,contact" class="d-block w-100 mx-0" alt="...">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Booking Price Calculator</title>
+    <script>
+        function calculatePrice() {
+            // Get the values entered by the user in rupees
+            const hours = parseFloat(document.getElementById("hours").value);
+            const hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+
+            // Calculate the total price in rupees
+            const totalPriceINR = hours * hourlyRate;
+
+            // Display the calculated price in rupees
+            document.getElementById("totalPrice").innerHTML = "Total Price: ₹" + totalPriceINR.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>Car Booking Price Calculator</h2>
+        <h4>Car booking 1 hour (in INR): ₹500</h4>
+        <h4>Car rent 1 hour (in INR): ₹750</h4>
+        <h4>Car Driver booking 1 hour (in INR): ₹250</h4>
+    </center>
+    <form>
+        <label for="hours">Number of Hours:</label>
+        <input type="number" id="hours" required>
+        <br><br>
+
+        <label for="hourlyRate">Hourly Rate (in INR):</label>
+        <input type="number" id="hourlyRate" required>
+        <br><br>
+
+        <input type="button" value="Calculate Price" onclick="calculatePrice()">
+    </form>
+
+    <div id="totalPrice"></div>
+</body>
+</html>
+{% endblock body %}
